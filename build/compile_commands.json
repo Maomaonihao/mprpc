@@ -1,0 +1,31 @@
+[
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++  -Dmprpc_EXPORTS -I../src/include -I../example  -g -fPIC   -o src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o -c /home/maozixiang/projects/mprpc/src/mprpcapplication.cc",
+  "file": "/home/maozixiang/projects/mprpc/src/mprpcapplication.cc"
+},
+
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++  -Dmprpc_EXPORTS -I../src/include -I../example  -g -fPIC   -o src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o -c /home/maozixiang/projects/mprpc/src/mprpcconfig.cc",
+  "file": "/home/maozixiang/projects/mprpc/src/mprpcconfig.cc"
+},
+
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++  -Dmprpc_EXPORTS -I../src/include -I../example  -g -fPIC   -o src/CMakeFiles/mprpc.dir/rpcprovider.cc.o -c /home/maozixiang/projects/mprpc/src/rpcprovider.cc",
+  "file": "/home/maozixiang/projects/mprpc/src/rpcprovider.cc"
+},
+
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/callee/CMakeFiles/provider.dir/userservice.cc.o -c /home/maozixiang/projects/mprpc/example/callee/userservice.cc",
+  "file": "/home/maozixiang/projects/mprpc/example/callee/userservice.cc"
+},
+
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/callee/CMakeFiles/provider.dir/__/user.pb.cc.o -c /home/maozixiang/projects/mprpc/example/user.pb.cc",
+  "file": "/home/maozixiang/projects/mprpc/example/user.pb.cc"
+}
+]
