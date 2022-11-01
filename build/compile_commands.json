@@ -31,13 +31,31 @@
 
 {
   "directory": "/home/maozixiang/projects/mprpc/build",
-  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/caller/CMakeFiles/provider.dir/userservice.cc.o -c /home/maozixiang/projects/mprpc/example/callee/userservice.cc",
-  "file": "/home/maozixiang/projects/mprpc/example/callee/userservice.cc"
+  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o -c /home/maozixiang/projects/mprpc/src/mprpccontroller.cc",
+  "file": "/home/maozixiang/projects/mprpc/src/mprpccontroller.cc"
 },
 
 {
   "directory": "/home/maozixiang/projects/mprpc/build",
-  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/caller/CMakeFiles/provider.dir/__/user.pb.cc.o -c /home/maozixiang/projects/mprpc/example/user.pb.cc",
-  "file": "/home/maozixiang/projects/mprpc/example/user.pb.cc"
+  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/callee/CMakeFiles/provider.dir/friendservice.cc.o -c /home/maozixiang/projects/mprpc/example/callee/friendservice.cc",
+  "file": "/home/maozixiang/projects/mprpc/example/callee/friendservice.cc"
+},
+
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/callee/CMakeFiles/provider.dir/__/friend.pb.cc.o -c /home/maozixiang/projects/mprpc/example/friend.pb.cc",
+  "file": "/home/maozixiang/projects/mprpc/example/friend.pb.cc"
+},
+
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/caller/CMakeFiles/consumer.dir/callfriendservice.cc.o -c /home/maozixiang/projects/mprpc/example/caller/callfriendservice.cc",
+  "file": "/home/maozixiang/projects/mprpc/example/caller/callfriendservice.cc"
+},
+
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/caller/CMakeFiles/consumer.dir/__/friend.pb.cc.o -c /home/maozixiang/projects/mprpc/example/friend.pb.cc",
+  "file": "/home/maozixiang/projects/mprpc/example/friend.pb.cc"
 }
 ]

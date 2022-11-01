@@ -1,4 +1,4 @@
-# Install script for directory: /home/maozixiang/projects/mprpc/example/callee
+# Install script for directory: /home/maozixiang/projects/mprpc/example/caller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

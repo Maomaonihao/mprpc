@@ -32,7 +32,8 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     }
     else
     {
-        std::cout << "serialize request error!" << std::endl;
+        // std::cout << "serialize request error!" << std::endl;
+        controller->SetFailed("serialize request error!");
         return;
     }
     
@@ -50,7 +51,8 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     }
     else
     {
-        std::cout << "serialize rpc header error!" << std::endl;
+        // std::cout << "serialize rpc header error!" << std::endl;
+        controller->SetFailed("serialize rpc header error!");
         return;
     }
 
@@ -64,9 +66,9 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     // 打印调试信息
     std::cout << "==================================" << std::endl;
     std::cout << "header_size: " << header_size << std::endl;
-    std::cout << "rpc_header_str: " << header_size << std::endl;
-    std::cout << "service_name: " << header_size << std::endl;
-    std::cout << "method_name: " << header_size << std::endl;
+    std::cout << "rpc_header_str: " << rpc_header_str << std::endl;
+    std::cout << "service_name: " << service_name << std::endl;
+    std::cout << "method_name: " << method_name << std::endl;
     std::cout << "args_str: " << args_str << std::endl;
     std::cout << "==================================" << std::endl;
 
@@ -74,8 +76,11 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     int clientfd  = socket(AF_INET, SOCK_STREAM, 0);
     if (-1 == clientfd)
     {
-        std::cout << "create socket errno: " << errno << std::endl;
-        exit(EXIT_FAILURE);
+        // std::cout << "create socket errno: " << errno << std::endl;
+        char errtxt[512] = {0};
+        sprintf(errtxt, "create socket error! errno: %d", errno);
+        controller->SetFailed(errtxt);
+        return;
     }
 
     // 读取配置文件rpcserver的信息
@@ -91,15 +96,21 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     // 连接rpc服务节点
     if (-1 == connect(clientfd, (struct sockaddr*)&server_addr, sizeof(server_addr)))
     {
-        std::cout << "connect error! errno: " << errno << std::endl;
         close(clientfd);
-        exit(EXIT_FAILURE);
+        // std::cout << "connect error! errno: " << errno << std::endl;
+        char errtxt[512] = {0};
+        sprintf(errtxt, "connect error! errno: %d", errno);
+        controller->SetFailed(errtxt);
+        return;
     }
 
     // 发送rpc请求
     if (-1 == send(clientfd, send_rpc_str.c_str(), send_rpc_str.size(), 0))
     {
-        std::cout << "connect error! errno:" << errno << std::endl;
+        // std::cout << "send error! errno:" << errno << std::endl;
+        char errtxt[512] = {0};
+        sprintf(errtxt, "send error! errno: %d", errno);
+        controller->SetFailed(errtxt);
         return;
     }
 
@@ -108,17 +119,25 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     int recv_size = 0;
     if (-1 == (recv_size = recv(clientfd, recv_buf, 1024, 0)))
     {
-        std::cout << "recv error! errno:" << errno << std::endl;
+        // std::cout << "recv error! errno:" << errno << std::endl;
         close(clientfd);
+        char errtxt[512] = {0};
+        sprintf(errtxt, "recv error! errno: %d", errno);
+        controller->SetFailed(errtxt);
         return;
     }
     
     // 反序列化rpc调用的响应数据
-    std::string response_str(recv_buf, 0, recv_size);
-    if (response->ParseFromString(response_str))
+    std::string response_str(recv_buf, 0, recv_size);   // bug出现问题，recv_buf中遇到\0，后面的数据就存不下来了，导致反序列化失败
+    // if (!response->ParseFromString(response_str))
+    if (!response->ParseFromArray(recv_buf, recv_size))
     {
         std::cout << "parse error! response_str: " << std::endl;
         close(clientfd);
+        char errtxt[1024] = {0};
+        // sprintf(errtxt, "parse error! response_str:%s", recv_buf);
+        sprintf(errtxt, "parse error! response_str:%s", recv_buf);
+        controller->SetFailed(errtxt);
         return;  
     }
 
