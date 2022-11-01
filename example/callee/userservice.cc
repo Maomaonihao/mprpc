@@ -15,6 +15,15 @@ public:
     {
         std::cout << "doing local service: Login" << std::endl;
         std::cout << "name:" << name << " pwd:" << pwd << std::endl;
+        return true;
+        // return false;
+    }
+
+    bool Register(uint32_t id, std::string name, std::string pwd)
+    {
+        std::cout << "doing local service: Register" << std::endl;
+        std::cout << "id" << id << "name:" << name << " pwd:" << pwd << std::endl;
+        return true;
     }
 
     // 重写基类UserService的虚函数，下面这些方法都是框架直接调用的
@@ -38,15 +47,35 @@ public:
         // 把响应想入response，至于怎么序列化，怎么传，都交给框架做了
         // 报错错误码，错误消息，返回值
         fixbug::ResultCode *code = response->mutable_result();
+        // code->set_errcode(1);
+        // code->set_errmsg("Login do error!");
         code->set_errcode(0);
-        code->set_errmsg("");
+        code->set_errmsg("Login do error!");
         response->set_success(login_result);
 
         // 调用执行回调操作， 执行响应数据的序列化和网络发送（都由框架来完成）
         // Closure是一个抽象类，肯定不是指向Cloure对象的，这里肯定要定义一个继承自Closure的类，然后重写Run()方法
         // 当然这里也可以传一个匿名的函数对象，lambda表达式
         done->Run();
+    }
 
+    void Register(::google::protobuf::RpcController* controller,
+                       const ::fixbug::RegisterRequest* request,
+                       ::fixbug::RegisterResponse* response,
+                       ::google::protobuf::Closure* done)
+    {
+        uint32_t id = request->id();
+        std::string name = request->name();
+        std::string pwd = request->pwd();
+
+        // 做服务器上提供的本地业务
+        bool ret = Register(id, name, pwd);
+
+        response->mutable_result()->set_errcode(0);
+        response->mutable_result()->set_errmsg("");
+        response->set_success(ret);
+
+        done->Run();
     }
 };
 
@@ -55,7 +84,7 @@ int main(int argc, char **argv)   // argc, argv这些参数都是从配置文件
     // 调用框架的初始化操作  provider -i config.conf
     MprpcApplication::Init(argc, argv);
 
-    // provider是一个rpc网络服务对象，把UserService对象发布到rpc节点上
+    // provider是一个rpc网络服务对象，把FriendService对象发布到rpc节点上
     RpcProvider provider;
     provider.NotifyService(new UserService());
 

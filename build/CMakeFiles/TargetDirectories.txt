@@ -5,6 +5,9 @@
 /home/maozixiang/projects/mprpc/build/src/CMakeFiles/mprpc.dir
 /home/maozixiang/projects/mprpc/build/example/CMakeFiles/rebuild_cache.dir
 /home/maozixiang/projects/mprpc/build/example/CMakeFiles/edit_cache.dir
+/home/maozixiang/projects/mprpc/build/example/callee/CMakeFiles/rebuild_cache.dir
+/home/maozixiang/projects/mprpc/build/example/callee/CMakeFiles/edit_cache.dir
+/home/maozixiang/projects/mprpc/build/example/callee/CMakeFiles/provider.dir
 /home/maozixiang/projects/mprpc/build/example/caller/CMakeFiles/rebuild_cache.dir
 /home/maozixiang/projects/mprpc/build/example/caller/CMakeFiles/edit_cache.dir
-/home/maozixiang/projects/mprpc/build/example/caller/CMakeFiles/provider.dir
+/home/maozixiang/projects/mprpc/build/example/caller/CMakeFiles/consumer.dir
