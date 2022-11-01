@@ -50,3 +50,12 @@
 1	1042	1667269583032439783	example/caller/CMakeFiles/provider.dir/__/user.pb.cc.o	a0a24b4d29376487
 1	1123	1667269583112439136	example/caller/CMakeFiles/provider.dir/userservice.cc.o	182b452d8ecb93d2
 1123	1385	1667269583372437032	../bin/provider	42a346bee0deebea
+1	869	1667284632707385680	src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o	ac2f4aea1bf02d28
+869	965	1667284632799402017	../lib/libmprpc.a	b342a0dfa196ab15
+966	1286	1667284633123459258	../bin/provider	42a346bee0deebea
+2	857	1667285250023048985	src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o	ac2f4aea1bf02d28
+857	933	1667285250095059153	../lib/libmprpc.a	b342a0dfa196ab15
+933	1179	1667285250347094736	../bin/provider	42a346bee0deebea
+1	881	1667286592999985452	src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o	ac2f4aea1bf02d28
+881	944	1667286593059982762	../lib/libmprpc.a	b342a0dfa196ab15
+944	1249	1667286593363969134	../bin/provider	42a346bee0deebea
