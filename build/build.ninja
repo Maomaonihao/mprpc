@@ -81,7 +81,7 @@ build src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
 build src/edit_cache: phony src/CMakeFiles/edit_cache.util
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target mprpc
+# Object build statements for STATIC_LIBRARY target mprpc
 
 
 #############################################
@@ -90,47 +90,48 @@ build src/edit_cache: phony src/CMakeFiles/edit_cache.util
 build cmake_object_order_depends_target_mprpc: phony || src/CMakeFiles/mprpc.dir
 
 build src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o: CXX_COMPILER__mprpc ../src/mprpcapplication.cc || cmake_object_order_depends_target_mprpc
-  DEFINES = -Dmprpc_EXPORTS
   DEP_FILE = src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o.d
-  FLAGS = -g -fPIC
+  FLAGS = -g
   INCLUDES = -I../src/include -I../example
   OBJECT_DIR = src/CMakeFiles/mprpc.dir
   OBJECT_FILE_DIR = src/CMakeFiles/mprpc.dir
 
 build src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o: CXX_COMPILER__mprpc ../src/mprpcconfig.cc || cmake_object_order_depends_target_mprpc
-  DEFINES = -Dmprpc_EXPORTS
   DEP_FILE = src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o.d
-  FLAGS = -g -fPIC
+  FLAGS = -g
+  INCLUDES = -I../src/include -I../example
+  OBJECT_DIR = src/CMakeFiles/mprpc.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/mprpc.dir
+
+build src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o: CXX_COMPILER__mprpc ../src/rpcheader.pb.cc || cmake_object_order_depends_target_mprpc
+  DEP_FILE = src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o.d
+  FLAGS = -g
   INCLUDES = -I../src/include -I../example
   OBJECT_DIR = src/CMakeFiles/mprpc.dir
   OBJECT_FILE_DIR = src/CMakeFiles/mprpc.dir
 
 build src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: CXX_COMPILER__mprpc ../src/rpcprovider.cc || cmake_object_order_depends_target_mprpc
-  DEFINES = -Dmprpc_EXPORTS
   DEP_FILE = src/CMakeFiles/mprpc.dir/rpcprovider.cc.o.d
-  FLAGS = -g -fPIC
+  FLAGS = -g
   INCLUDES = -I../src/include -I../example
   OBJECT_DIR = src/CMakeFiles/mprpc.dir
   OBJECT_FILE_DIR = src/CMakeFiles/mprpc.dir
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target mprpc
+# Link build statements for STATIC_LIBRARY target mprpc
 
 
 #############################################
-# Link the shared library ../lib/libmprpc.so
+# Link the static library ../lib/libmprpc.a
 
-build ../lib/libmprpc.so: CXX_SHARED_LIBRARY_LINKER__mprpc src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o src/CMakeFiles/mprpc.dir/rpcprovider.cc.o
+build ../lib/libmprpc.a: CXX_STATIC_LIBRARY_LINKER__mprpc src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o src/CMakeFiles/mprpc.dir/rpcprovider.cc.o
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_PATH = -L/home/maozixiang/projects/mprpc/lib
   OBJECT_DIR = src/CMakeFiles/mprpc.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libmprpc.so
-  SONAME_FLAG = -Wl,-soname,
-  TARGET_FILE = ../lib/libmprpc.so
-  TARGET_PDB = mprpc.so.dbg
+  TARGET_FILE = ../lib/libmprpc.a
+  TARGET_PDB = mprpc.a.dbg
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -219,10 +220,10 @@ build example/callee/CMakeFiles/provider.dir/__/user.pb.cc.o: CXX_COMPILER__prov
 #############################################
 # Link the executable ../bin/provider
 
-build ../bin/provider: CXX_EXECUTABLE_LINKER__provider example/callee/CMakeFiles/provider.dir/userservice.cc.o example/callee/CMakeFiles/provider.dir/__/user.pb.cc.o | ../lib/libmprpc.so || ../lib/libmprpc.so
+build ../bin/provider: CXX_EXECUTABLE_LINKER__provider example/callee/CMakeFiles/provider.dir/userservice.cc.o example/callee/CMakeFiles/provider.dir/__/user.pb.cc.o | ../lib/libmprpc.a || ../lib/libmprpc.a
   FLAGS = -g
   LINK_FLAGS = -rdynamic
-  LINK_LIBRARIES = -Wl,-rpath,/home/maozixiang/projects/mprpc/lib  ../lib/libmprpc.so  -lprotobuf
+  LINK_LIBRARIES = -Wl,-rpath,/home/maozixiang/projects/mprpc/lib  ../lib/libmprpc.a  -lprotobuf  -lmuduo_net  -lmuduo_base  -lpthread
   LINK_PATH = -L/home/maozixiang/projects/mprpc/lib
   OBJECT_DIR = example/callee/CMakeFiles/provider.dir
   POST_BUILD = :
@@ -233,9 +234,9 @@ build ../bin/provider: CXX_EXECUTABLE_LINKER__provider example/callee/CMakeFiles
 # =============================================================================
 # Target aliases.
 
-build libmprpc.so: phony ../lib/libmprpc.so
+build libmprpc.a: phony ../lib/libmprpc.a
 
-build mprpc: phony ../lib/libmprpc.so
+build mprpc: phony ../lib/libmprpc.a
 
 build provider: phony ../bin/provider
 
@@ -268,7 +269,7 @@ build example/callee/all: phony ../bin/provider
 #############################################
 # Folder: /home/maozixiang/projects/mprpc/build/src
 
-build src/all: phony ../lib/libmprpc.so
+build src/all: phony ../lib/libmprpc.a
 
 # =============================================================================
 # Unknown Build Time Dependencies.

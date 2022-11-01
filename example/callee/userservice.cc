@@ -62,7 +62,5 @@ int main(int argc, char **argv)   // argc, argv这些参数都是从配置文件
     // 启动一个rpc服务发布节点    Run以后，进程进入阻塞状态，等待远程的rpc调用请求
     provider.Run();
 
-
-
     return 0;
 }

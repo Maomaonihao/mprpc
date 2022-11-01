@@ -9,7 +9,7 @@ public:
 
     // 定义唯一的实例app
     static MprpcApplication &GetInstance();
-   
+    static MprpcConfig& GetConfig();
 
 private:
     static MprpcConfig m_config;
