@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "logger.h"
 
 class FriendService : public fixbug::FriendServiceRpc
 {
@@ -41,6 +42,9 @@ public:
 
 int main(int argc, char **argv)   // argc, argv这些参数都是从配置文件而来
 {
+    LOG_INFO("first log message!");
+    LOG_ERR("%s:%s:%d", __FILE__, __FUNCTION__, __LINE__);  
+    // LOG_ERR("dddddddddddd");
     // 调用框架的初始化操作  provider -i config.conf
     MprpcApplication::Init(argc, argv);
 
