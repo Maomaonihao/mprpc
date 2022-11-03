@@ -131,6 +131,13 @@ build src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o: CXX_COMPILER__mprpc ../src/
   OBJECT_DIR = src/CMakeFiles/mprpc.dir
   OBJECT_FILE_DIR = src/CMakeFiles/mprpc.dir
 
+build src/CMakeFiles/mprpc.dir/logger.cc.o: CXX_COMPILER__mprpc ../src/logger.cc || cmake_object_order_depends_target_mprpc
+  DEP_FILE = src/CMakeFiles/mprpc.dir/logger.cc.o.d
+  FLAGS = -g
+  INCLUDES = -I../src/include -I../example
+  OBJECT_DIR = src/CMakeFiles/mprpc.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/mprpc.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target mprpc
@@ -139,7 +146,7 @@ build src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o: CXX_COMPILER__mprpc ../src/
 #############################################
 # Link the static library ../lib/libmprpc.a
 
-build ../lib/libmprpc.a: CXX_STATIC_LIBRARY_LINKER__mprpc src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o src/CMakeFiles/mprpc.dir/rpcprovider.cc.o src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o
+build ../lib/libmprpc.a: CXX_STATIC_LIBRARY_LINKER__mprpc src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o src/CMakeFiles/mprpc.dir/rpcprovider.cc.o src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o src/CMakeFiles/mprpc.dir/logger.cc.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src/CMakeFiles/mprpc.dir
   POST_BUILD = :

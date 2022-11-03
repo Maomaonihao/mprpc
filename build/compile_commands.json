@@ -37,6 +37,12 @@
 
 {
   "directory": "/home/maozixiang/projects/mprpc/build",
+  "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o src/CMakeFiles/mprpc.dir/logger.cc.o -c /home/maozixiang/projects/mprpc/src/logger.cc",
+  "file": "/home/maozixiang/projects/mprpc/src/logger.cc"
+},
+
+{
+  "directory": "/home/maozixiang/projects/mprpc/build",
   "command": "/usr/bin/g++   -I../src/include -I../example  -g   -o example/callee/CMakeFiles/provider.dir/friendservice.cc.o -c /home/maozixiang/projects/mprpc/example/callee/friendservice.cc",
   "file": "/home/maozixiang/projects/mprpc/example/callee/friendservice.cc"
 },
