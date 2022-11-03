@@ -138,6 +138,13 @@ build src/CMakeFiles/mprpc.dir/logger.cc.o: CXX_COMPILER__mprpc ../src/logger.cc
   OBJECT_DIR = src/CMakeFiles/mprpc.dir
   OBJECT_FILE_DIR = src/CMakeFiles/mprpc.dir
 
+build src/CMakeFiles/mprpc.dir/zookeeperutil.cc.o: CXX_COMPILER__mprpc ../src/zookeeperutil.cc || cmake_object_order_depends_target_mprpc
+  DEP_FILE = src/CMakeFiles/mprpc.dir/zookeeperutil.cc.o.d
+  FLAGS = -g
+  INCLUDES = -I../src/include -I../example
+  OBJECT_DIR = src/CMakeFiles/mprpc.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/mprpc.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target mprpc
@@ -146,7 +153,7 @@ build src/CMakeFiles/mprpc.dir/logger.cc.o: CXX_COMPILER__mprpc ../src/logger.cc
 #############################################
 # Link the static library ../lib/libmprpc.a
 
-build ../lib/libmprpc.a: CXX_STATIC_LIBRARY_LINKER__mprpc src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o src/CMakeFiles/mprpc.dir/rpcprovider.cc.o src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o src/CMakeFiles/mprpc.dir/logger.cc.o
+build ../lib/libmprpc.a: CXX_STATIC_LIBRARY_LINKER__mprpc src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o src/CMakeFiles/mprpc.dir/rpcprovider.cc.o src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o src/CMakeFiles/mprpc.dir/mprpccontroller.cc.o src/CMakeFiles/mprpc.dir/logger.cc.o src/CMakeFiles/mprpc.dir/zookeeperutil.cc.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src/CMakeFiles/mprpc.dir
   POST_BUILD = :
@@ -244,7 +251,7 @@ build example/callee/CMakeFiles/provider.dir/__/friend.pb.cc.o: CXX_COMPILER__pr
 build ../bin/provider: CXX_EXECUTABLE_LINKER__provider example/callee/CMakeFiles/provider.dir/friendservice.cc.o example/callee/CMakeFiles/provider.dir/__/friend.pb.cc.o | ../lib/libmprpc.a || ../lib/libmprpc.a
   FLAGS = -g
   LINK_FLAGS = -rdynamic
-  LINK_LIBRARIES = -Wl,-rpath,/home/maozixiang/projects/mprpc/lib  ../lib/libmprpc.a  -lprotobuf  -lmuduo_net  -lmuduo_base  -lpthread
+  LINK_LIBRARIES = -Wl,-rpath,/home/maozixiang/projects/mprpc/lib  ../lib/libmprpc.a  -lprotobuf  -lmuduo_net  -lmuduo_base  -lpthread  -lzookeeper_mt
   LINK_PATH = -L/home/maozixiang/projects/mprpc/lib
   OBJECT_DIR = example/callee/CMakeFiles/provider.dir
   POST_BUILD = :
@@ -314,7 +321,7 @@ build example/caller/CMakeFiles/consumer.dir/__/friend.pb.cc.o: CXX_COMPILER__co
 build ../bin/consumer: CXX_EXECUTABLE_LINKER__consumer example/caller/CMakeFiles/consumer.dir/callfriendservice.cc.o example/caller/CMakeFiles/consumer.dir/__/friend.pb.cc.o | ../lib/libmprpc.a || ../lib/libmprpc.a
   FLAGS = -g
   LINK_FLAGS = -rdynamic
-  LINK_LIBRARIES = -Wl,-rpath,/home/maozixiang/projects/mprpc/lib  ../lib/libmprpc.a  -lprotobuf  -lmuduo_net  -lmuduo_base  -lpthread
+  LINK_LIBRARIES = -Wl,-rpath,/home/maozixiang/projects/mprpc/lib  ../lib/libmprpc.a  -lprotobuf  -lmuduo_net  -lmuduo_base  -lpthread  -lzookeeper_mt
   LINK_PATH = -L/home/maozixiang/projects/mprpc/lib
   OBJECT_DIR = example/caller/CMakeFiles/consumer.dir
   POST_BUILD = :
