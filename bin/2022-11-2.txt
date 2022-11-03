@@ -1,0 +1,2 @@
+11:9:54 =>first log message!
+11:9:54 =>../example/callee/friendservice.cc:main:46
