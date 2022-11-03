@@ -1,0 +1,4 @@
+17:14:0 => [error]first log message!
+17:14:0 => [error]../example/callee/friendservice.cc:main:46
+17:14:0 => [info]service_name:FriendServiceRpc
+17:14:0 => [info]method_name:GetFriendList

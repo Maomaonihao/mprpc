@@ -6,7 +6,8 @@ set(SRC_LIST
     rpcprovider.cc 
     mprpcchannel.cc 
     mprpccontroller.cc
-    logger.cc)
+    logger.cc
+    zookeeperutil.cc)
     
 add_library(mprpc ${SRC_LIST})  # 生成动态库（SHARED），这里需要和muduo库一样，编译为静态库，不然使用的时候会有问题
-target_link_libraries(mprpc muduo_net muduo_base pthread)
+target_link_libraries(mprpc muduo_net muduo_base pthread zookeeper_mt)
